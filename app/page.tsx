@@ -2,15 +2,15 @@ import Image from "next/image";
 import FadeIn from "./components/FadeIn";
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-black via-zinc-950 to-black text-white">
+    <main className="min-h-screen bg-gradient-to-b from-black via-zinc-950 to-black text-white overflow-x-hidden">
       <div className="fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute top-20 left-1/2 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-blue-500/10 blur-[180px]" />
+        <div className="absolute top-20 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-blue-500/10 blur-[150px]" />
       </div>
       {/* Navbar */}
       <nav className="sticky top-0 z-50 flex justify-between items-center px-12 py-5 backdrop-blur-xl bg-black/40 border-b border-white/5">
         <h1 className="text-xl font-bold">Arya Malviya</h1>
 
-        <div className="flex gap-8 text-zinc-400">
+        <div className="hidden md:flex gap-8 text-zinc-400">
           {/* Navbar */}
           <nav className="sticky top-0 z-50 flex justify-between items-center px-12 py-5 backdrop-blur-xl bg-black/40 border-b border-white/5">
             <a
@@ -66,32 +66,38 @@ export default function Home() {
 
       {/* Hero Section */}
       <FadeIn>
-        <section className="min-h-[90vh] flex flex-col items-center justify-center text-center">
+        <section className="min-h-[90vh] flex flex-col items-center justify-center text-center px-4">
           <div className="relative mb-10">
             <Image
               src="/arya.jpg"
               alt="Arya Malviya"
               width={260}
               height={260}
-              className="h-64 w-64 rounded-full object-cover border border-zinc-800 shadow-2xl"
+              className="h-40 w-40 md:h-64 md:w-64 rounded-full object-cover border border-zinc-800 shadow-2xl"
             />
           </div>
 
-          <p className="text-zinc-500 mb-4 tracking-[0.3em] uppercase">
-            AI • Product • Leadership
-          </p>
+          <div className="mb-6">
+            <p className="text-zinc-500 tracking-[0.3em] uppercase">
+              AI • Product • Leadership
+            </p>
 
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 max-w-5xl leading-tight">
+            <p className="text-zinc-400 text-sm md:text-base mt-4">
+              AI Engineer Intern @ StopNThink Infoconnect Pvt. Ltd.
+            </p>
+          </div>
+
+          <h1 className="text-4xl sm:text-5xl md:text-8xl font-bold mb-6 max-w-5xl leading-tight">
             From Ideas To Impact.
           </h1>
 
-          <p className="max-w-3xl text-xl text-zinc-400 mb-10 leading-relaxed">
+          <p className="max-w-3xl text-base md:text-xl text-zinc-400 mb-10 leading-relaxed px-4">
             Technology builder and community leader focused on transforming
             ideas into meaningful outcomes through innovation, execution, and
             impact.
           </p>
 
-          <div className="flex gap-4 mb-16">
+          <div className="flex flex-col sm:flex-row gap-4 mb-16">
             <a
               href="#projects"
               className="px-8 py-4 rounded-full bg-white text-black font-semibold hover:scale-105 transition"
@@ -107,7 +113,7 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mt-4">
             <div className="border border-zinc-800 rounded-2xl p-6 hover:border-white hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300">
               <h3 className="text-3xl font-bold mb-2">3+</h3>
               <p className="text-zinc-500">Years Volunteering</p>
@@ -132,14 +138,14 @@ export default function Home() {
       </FadeIn>
       {/* About Section */}
       <FadeIn>
-        <section id="about" className="max-w-6xl mx-auto px-10 py-24">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+        <section id="about" className="max-w-6xl mx-auto px-10 py-16 md:py-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
             <div>
               <p className="text-zinc-500 mb-4 uppercase tracking-widest">
                 About Me
               </p>
 
-              <h2 className="text-5xl font-bold mb-8">
+              <h2 className="text-4xl md:text-5xl font-bold">
                 Building Technology, Communities & Impact
               </h2>
 
@@ -153,7 +159,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="border border-zinc-800 rounded-3xl p-10 bg-zinc-950/60 backdrop-blur-sm transition-all duration-300 hover:border-zinc-600 hover:-translate-y-3 hover:shadow-2xl hover:shadow-white/5">
+            <div className="border border-zinc-800 rounded-3xl p-6 md:p-10 bg-zinc-950/60 backdrop-blur-sm transition-all duration-300 hover:border-zinc-600 hover:-translate-y-3 hover:shadow-2xl hover:shadow-white/5">
               <div className="space-y-8">
                 <div>
                   <p className="text-zinc-500">Education</p>
@@ -187,7 +193,10 @@ export default function Home() {
       </FadeIn>
       {/* Leadership & Impact Section */}
       <FadeIn>
-        <section id="leadership" className="max-w-6xl mx-auto px-10 py-24">
+        <section
+          id="leadership"
+          className="max-w-6xl mx-auto px-10 py-16 md:py-24"
+        >
           <div className="mb-20">
             <p className="text-zinc-500 uppercase tracking-[0.25em] mb-4">
               Leadership & Impact
@@ -259,7 +268,10 @@ export default function Home() {
       </FadeIn>
       {/* Experience Section */}
       <FadeIn>
-        <section id="experience" className="max-w-6xl mx-auto px-10 py-24">
+        <section
+          id="experience"
+          className="max-w-6xl mx-auto px-10 py-16 md:py-24"
+        >
           <p className="text-zinc-500 uppercase tracking-[0.25em] mb-4">
             Experience
           </p>
@@ -302,7 +314,10 @@ export default function Home() {
       </FadeIn>
       {/* Projects Section */}
       <FadeIn>
-        <section id="projects" className="max-w-7xl mx-auto px-10 py-24">
+        <section
+          id="projects"
+          className="max-w-7xl mx-auto px-10 py-16 md:py-24"
+        >
           <div className="mb-20">
             <p className="text-zinc-500 uppercase tracking-[0.25em] mb-4">
               Featured Projects
@@ -449,7 +464,7 @@ export default function Home() {
         <FadeIn>
           <section
             id="resume"
-            className="max-w-6xl mx-auto px-6 md:px-10 py-24"
+            className="max-w-6xl mx-auto px-6 md:px-10 py-16 md:py-24"
           >
             <div className="border border-zinc-800 rounded-3xl p-12 bg-zinc-950 text-center hover:border-white transition-all duration-300">
               <p className="text-zinc-500 uppercase tracking-[0.25em] mb-4">
@@ -473,29 +488,32 @@ export default function Home() {
             </div>
           </section>
         </FadeIn>
-        <section id="contact" className="max-w-6xl mx-auto px-10 py-24">
+        <section
+          id="contact"
+          className="max-w-6xl mx-auto px-10 py-16 md:py-24"
+        >
           <div className="border border-zinc-800 rounded-[40px] p-16 bg-zinc-950/60 backdrop-blur-sm transition-all duration-300 hover:border-zinc-600">
             <p className="text-zinc-500 uppercase tracking-[0.25em] mb-4 text-center">
               Let's Connect
             </p>
 
-            <h2 className="text-5xl md:text-6xl font-bold mb-8 text-center">
+            <h2 className="text-3xl md:text-6xl font-bold mb-8 text-center">
               Open To Meaningful Conversations
             </h2>
 
-            <p className="max-w-2xl mx-auto text-zinc-400 text-lg leading-8 mb-16 text-center">
+            <p className="max-w-2xl mx-auto text-zinc-400 text-base md:text-lg leading-8 mb-12 md:mb-16 text-center px-4">
               Whether it's artificial intelligence, technology, leadership,
               internships, collaboration opportunities, or innovative ideas, I'm
               always open to connecting with people building impactful things.
             </p>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <a
                 href="mailto:aryamalviya2107@gmail.com"
-                className="border border-zinc-800 rounded-3xl p-8 hover:border-zinc-600 transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl hover:shadow-white/5"
+                className="border border-zinc-800 rounded-3xl p-6 md:p-8 hover:border-zinc-600 transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl hover:shadow-white/5"
               >
                 <p className="text-zinc-500 mb-2">Email</p>
-                <h3 className="text-xl font-semibold">
+                <h3 className="text-sm md:text-xl font-semibold break-all">
                   aryamalviya2107@gmail.com
                 </h3>
               </a>
