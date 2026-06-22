@@ -1,72 +1,80 @@
+"use client";
+import { useState } from "react";
 import Image from "next/image";
 import FadeIn from "./components/FadeIn";
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <main className="min-h-screen bg-gradient-to-b from-black via-zinc-950 to-black text-white overflow-x-hidden">
       <div className="fixed inset-0 -z-10 overflow-hidden">
         <div className="absolute top-20 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-blue-500/10 blur-[150px]" />
       </div>
       {/* Navbar */}
-      <nav className="sticky top-0 z-50 flex justify-between items-center px-12 py-5 backdrop-blur-xl bg-black/40 border-b border-white/5">
+      <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 md:px-12 py-5 backdrop-blur-xl bg-black/70 border-b border-white/5">
         <h1 className="text-xl font-bold">Arya Malviya</h1>
 
+        {/* Desktop Menu */}
         <div className="hidden md:flex gap-8 text-zinc-400">
-          {/* Navbar */}
-          <nav className="sticky top-0 z-50 flex justify-between items-center px-12 py-5 backdrop-blur-xl bg-black/40 border-b border-white/5">
-            <a
-              href="#"
-              className="text-xl font-bold hover:text-zinc-300 transition duration-300"
-            ></a>
-
-            <div className="flex gap-8 text-zinc-400">
-              <a
-                href="#about"
-                className="transition duration-300 hover:text-white"
-              >
-                About
-              </a>
-
-              <a
-                href="#leadership"
-                className="transition duration-300 hover:text-white"
-              >
-                Leadership
-              </a>
-
-              <a
-                href="#experience"
-                className="transition duration-300 hover:text-white"
-              >
-                Experience
-              </a>
-
-              <a
-                href="#projects"
-                className="transition duration-300 hover:text-white"
-              >
-                Projects
-              </a>
-
-              <a
-                href="#contact"
-                className="transition duration-300 hover:text-white"
-              >
-                Contact
-              </a>
-              <a
-                href="#resume"
-                className="transition duration-300 hover:text-white"
-              >
-                Resume
-              </a>
-            </div>
-          </nav>
+          <a href="#about" className="hover:text-white transition">
+            About
+          </a>
+          <a href="#leadership" className="hover:text-white transition">
+            Leadership
+          </a>
+          <a href="#experience" className="hover:text-white transition">
+            Experience
+          </a>
+          <a href="#projects" className="hover:text-white transition">
+            Projects
+          </a>
+          <a href="#resume" className="hover:text-white transition">
+            Resume
+          </a>
+          <a href="#contact" className="hover:text-white transition">
+            Contact
+          </a>
         </div>
-      </nav>
 
+        {/* Mobile Hamburger */}
+        <button
+          className="md:hidden text-3xl"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          ☰
+        </button>
+      </nav>
+      {menuOpen && (
+        <div className="fixed top-[72px] left-0 right-0 z-40 bg-black border-b border-zinc-800 md:hidden">
+          <div className="flex flex-col p-6 gap-6">
+            <a href="#about" onClick={() => setMenuOpen(false)}>
+              About
+            </a>
+
+            <a href="#leadership" onClick={() => setMenuOpen(false)}>
+              Leadership
+            </a>
+
+            <a href="#experience" onClick={() => setMenuOpen(false)}>
+              Experience
+            </a>
+
+            <a href="#projects" onClick={() => setMenuOpen(false)}>
+              Projects
+            </a>
+
+            <a href="#resume" onClick={() => setMenuOpen(false)}>
+              Resume
+            </a>
+
+            <a href="#contact" onClick={() => setMenuOpen(false)}>
+              Contact
+            </a>
+          </div>
+        </div>
+      )}
       {/* Hero Section */}
       <FadeIn>
-        <section className="min-h-[90vh] flex flex-col items-center justify-center text-center px-4">
+        <section className="min-h-[90vh] pt-24 flex flex-col items-center justify-center text-center px-6 relative">
           <div className="relative mb-10">
             <Image
               src="/arya.jpg"
@@ -145,7 +153,7 @@ export default function Home() {
                 About Me
               </p>
 
-              <h2 className="text-4xl md:text-5xl font-bold">
+              <h2 className="text-4xl md:text-6xl font-bold leading-tight">
                 Building Technology, Communities & Impact
               </h2>
 
@@ -202,7 +210,7 @@ export default function Home() {
               Leadership & Impact
             </p>
 
-            <h2 className="text-5xl md:text-6xl font-bold leading-tight">
+            <h2 className="text-4xl md:text-6xl font-bold leading-tight">
               Leading Communities, Creating Impact.
             </h2>
 
@@ -276,7 +284,9 @@ export default function Home() {
             Experience
           </p>
 
-          <h2 className="text-5xl font-bold mb-16">Professional Experience</h2>
+          <h2 className="text-4xl md:text-6xl font-bold leading-tight">
+            Professional Experience
+          </h2>
 
           <div className="border border-zinc-800 rounded-3xl p-10 bg-zinc-950/60 backdrop-blur-sm transition-all duration-300 hover:border-zinc-600 hover:-translate-y-3 hover:shadow-2xl hover:shadow-white/5">
             <div className="flex justify-between items-start flex-wrap gap-4 mb-6">
@@ -323,7 +333,7 @@ export default function Home() {
               Featured Projects
             </p>
 
-            <h2 className="text-5xl md:text-6xl font-bold">
+            <h2 className="text-4xl md:text-6xl font-bold leading-tight">
               Building Real Solutions
             </h2>
 
@@ -497,7 +507,7 @@ export default function Home() {
               Let's Connect
             </p>
 
-            <h2 className="text-3xl md:text-6xl font-bold mb-8 text-center">
+            <h2 className="text-4xl md:text-6xl font-bold mb-8 text-center">
               Open To Meaningful Conversations
             </h2>
 
@@ -539,11 +549,10 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-10 py-10 flex flex-col md:flex-row justify-between items-center gap-6">
           <div>
             <h3 className="text-xl font-bold">Arya Malviya</h3>
-            <p className="text-zinc-500 mt-2">From Ideas To Impact.</p>
           </div>
 
           <div className="text-zinc-500 text-center">
-            Building technology, leadership & community impact.
+            Building technology, Leveraging leadership & Uplifting communities .
           </div>
 
           <div className="text-zinc-500 text-sm">© 2026 Arya Malviya</div>
