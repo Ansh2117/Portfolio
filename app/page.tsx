@@ -1,8 +1,11 @@
 "use client";
+import { useTheme } from "next-themes";
+import { Moon, Sun } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
 import FadeIn from "./components/FadeIn";
 export default function Home() {
+  const { theme, setTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <main className="min-h-screen bg-gradient-to-b from-black via-zinc-950 to-black text-white overflow-x-hidden">
@@ -34,6 +37,12 @@ export default function Home() {
             Contact
           </a>
         </div>
+        <button
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          className="p-2 rounded-full border border-zinc-700 hover:border-white transition"
+        >
+          {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+        </button>
 
         {/* Mobile Hamburger */}
         <button
